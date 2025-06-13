@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tesla's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-bg: linear-gradient(135deg, #e0eafc, #cfdef3);
+      --accent-color: #4f8cff;
+      --text-color: #2b2d42;
+      --soft-border: rgba(0, 0, 0, 0.1);
+      --light-bg: #ffffffcc;
+      --dark-bg: #1e1e2f;
+      --dark-text: #f0f0f0;
+      --dark-accent: #7aa5ff;
+    }
+
+    body.dark {
+      background: #121212;
+      color: var(--dark-text);
+    }
+
+    body.dark .contacts,
+    body.dark .skills,
+    body.dark .projects,
+    body.dark nav,
+    body.dark footer {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    body.dark .contacts a,
+    body.dark .skills li {
+      background: #2b2b3c;
+      color: var(--dark-text);
+    }
+
+    body.dark .contacts a:hover,
+    body.dark .skills li:hover {
+      background: #3a3a4f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--primary-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    nav {
+      background: var(--light-bg);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 4px var(--soft-border);
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: inherit;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #dde7ff;
+    }
+
+    .toggle-btn {
+      cursor: pointer;
+      padding: 0.3rem 0.6rem;
+      border: none;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 4px;
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: var(--light-bg);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px var(--soft-border);
+      margin: 2rem auto;
+      max-width: 1000px;
+      transition: transform 0.4s;
+    }
+
+    .hero:hover {
+      transform: translateY(-4px);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent-color);
+      transition: transform 0.3s;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      margin-top: 3rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--accent-color);
+      padding-left: 0.5rem;
+    }
+
+    .contacts, .skills, .projects {
+      background: var(--light-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px var(--soft-border);
+    }
+
+    .contacts ul,
+    .skills ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .contacts a,
+    .skills li {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      background: #f0f4ff;
+      color: var(--text-color);
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .contacts a:hover,
+    .skills li:hover {
+      background: #d4e1ff;
+    }
+
+    .projects .project {
+      margin-bottom: 1rem;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .projects .project h3 {
+      margin-bottom: 0.3rem;
+      font-size: 1.2rem;
+      color: var(--accent-color);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--light-bg);
+      border-top: 1px solid #ccc;
+    }
+
+    @media (min-width: 768px) {
+      header {
+        flex-direction: row;
+        text-align: left;
+        gap: 2rem;
+      }
+
+      header img {
+        width: 180px;
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Tesla</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </nav>
+
+  <section class="hero">
+    <h1>Hello, I'm Tesla</h1>
+    <p>A software engineer focused on building efficient, modern, and scalable web applications.</p>
+  </section>
+
+  <div class="container">
+    <header id="about">
+      <img src="/myportfolio/me.jpg" alt="Profile Photo">
+      <div>
+        <h1>About Me</h1>
+        <p>I’m a passionate software engineer who builds responsive, scalable web applications. I specialize in frontend and backend development using modern technologies to solve real-world problems.</p>
+      </div>
+    </header>
+
+    <section class="contacts" id="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:tibatesla@gmail.com">📧 Email</a></li>
+        <li><a href="https://github.com/tibatesla" target="_blank">💻 GitHub</a></li>
+        <li><a href="https://linkedin.com/in/Tesla Tiba" target="_blank">🔗 LinkedIn</a></li>
+        <li><a href="tel:+254111570173">📞 +254 1115 701 73</a></li>
+      </ul>
+    </section>
+
+    <section class="skills" id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>MySQL</li>
+        <li>TailwindCSS</li>
+        <li>React</li>
+        <li>Git & GitHub</li>
+        <li>APIs</li>
+      </ul>
+    </section>
+
+    <section class="projects" id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>Student Results Portal</h3>
+        <p>A web system for managing and displaying student results with authentication and MySQL backend.</p>
+      </div>
+      <div class="project">
+        <h3>Clothing E-commerce Store</h3>
+        <p>A modern clothing store built with HTML, CSS, JS, and product management functionality.</p>
+      </div>
+      <div class="project">
+        <h3>Forex Signal Dashboard</h3>
+        <p>Real-time dashboard showing smart money concepts and trade setups using automated logic.</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Tesla. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
